@@ -31,9 +31,10 @@ export default {
 
 <style>
 
-/* .myCard {
+.myCard {
+  width: 1500px;
   
-} */
+}
 
 
 </style>

@@ -29,7 +29,7 @@
     ></b-button>
     <br />
     <br />
-    <b-card-group columns id="card_deck">
+    <b-card-group deck id="card_deck">
       <div v-for="(pkm, index) in arrayPkm" :key="index">
         <b-row >
           <Card
