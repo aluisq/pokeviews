@@ -2,6 +2,7 @@
   <div id="app">
    
     <Navbar/>
+    <Sidebar/>
 
     <div id="nav">
       <router-link to="/">Home</router-link> |
@@ -16,11 +17,13 @@
 <script>
 
 import Navbar from "@/components/Navbar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 
 export default {
   name: "Home",
   components: {
-    Navbar
+    Navbar,
+    Sidebar
   }
 }
 
@@ -59,4 +62,9 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+#sidebar-1 p {
+  color: #fcba03;
+}
+
 </style>

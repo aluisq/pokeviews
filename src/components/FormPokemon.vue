@@ -29,17 +29,23 @@
     ></b-button>
     <br />
     <br />
-    <b-card-group deck id="card_deck">
+    <b-card-group column id="card_deck">
       <div v-for="(pkm, index) in arrayPkm" :key="index">
         <b-row >
           <Card
-            :tittle="pkm.pokemon"
-            :img_url="pkm.img"
             :num="pkm.id"
-            content="????????????"
+            :tittle="pkm.pokemon"
+            :hp ="pkm.content.status.hp"
+            :atak ="pkm.content.status.atak"
+            :def ="pkm.content.status.def"
+            :satak ="pkm.content.status.satak"
+            :sdef ="pkm.content.status.sdef"
+            :speed ="pkm.content.status.speed"
+            :img_url="pkm.img"
+            content="Hello!"
           />
         </b-row>
-        <b-button size="sm" pill @click="removeCard(pkm.id)" variant="danger"
+        <b-button style="margin-bottom: 21px;" size="sm" pill @click="removeCard(pkm.id)" variant="danger"
           ><b-icon icon="x-circle" font-scale="1"></b-icon
         ></b-button>
       </div>
@@ -83,7 +89,14 @@ export default {
                 pokemon: response.data.name,
                 img: response.data.sprites.front_default,
                 content: {
-                  status: {},
+                  status: {
+                    hp: response.data.stats[0].base_stat,
+                    atak: response.data.stats[1].base_stat,
+                    def : response.data.stats[2].base_stat,
+                    satak : response.data.stats[3].base_stat,
+                    sdef : response.data.stats[4].base_stat,
+                    speed: response.data.stats[5].base_stat
+                  },
                   abilities: {},
                   types: {},
                 },
